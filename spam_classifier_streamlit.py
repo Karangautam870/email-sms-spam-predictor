@@ -19,6 +19,8 @@ except LookupError:
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
 
+ps = PorterStemmer()
+
 
 def transform_text(text):
     text = text.lower()
@@ -38,7 +40,6 @@ def transform_text(text):
 
     text = y[:]
     y.clear()
-    ps = PorterStemmer()
 
     for i in text:
         y.append(ps.stem(i))
