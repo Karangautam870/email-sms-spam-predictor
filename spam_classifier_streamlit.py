@@ -4,12 +4,27 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import string
+import os
+
 
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)
 
-tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
-model = pickle.load(open('model.pkl', 'rb'))
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+tfidf_path = os.path.join(current_dir, 'vectorizer.pkl')
+model_path = os.path.join(current_dir, 'model.pkl')
+
+try:
+    with open(tfidf_path, 'rb') as f:
+        tfidf = pickle.load(f)
+    with open(model_path, 'rb') as f:
+        model = pickle.load(f)
+except FileNotFoundError as e:
+    st.error(f"Model files not found. Please ensure vectorizer.pkl and model.pkl are in the same directory as this script.")
+    st.stop()
 
 def transform_text(text):
     text = text.lower()
