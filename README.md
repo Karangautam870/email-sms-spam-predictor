@@ -90,8 +90,6 @@ This project tackles the problem of SMS spam detection using Natural Language Pr
 ## 🚀 Model Optimization Techniques
 
 ### Hyperparameter Tuning
-- Used GridSearchCV for optimal parameters
-- Tested various alpha values for Naive Bayes
 - Experimented with different TF-IDF configurations
 
 ### Ensemble Methods Tested
