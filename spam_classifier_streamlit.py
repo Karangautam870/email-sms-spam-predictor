@@ -1,21 +1,16 @@
-import nltk
-import string
 import pickle
+import nltk
 import streamlit as st
+import string
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# Download NLTK data first
+
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
     nltk.download('punkt', quiet=True)
-    
-try:
-    nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    nltk.download('punkt_tab', quiet=True)
-    
+
 try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
@@ -57,8 +52,8 @@ input_sms = st.text_area('Enter the message')
 
 if st.button('Predict'):
     transformed_sms = tfidf.transform([transform_text(input_sms)])
-
     prediction = model.predict(transformed_sms)[0]
+
     if prediction == 1:
         st.error('Spam')
     else:
