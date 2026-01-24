@@ -59,8 +59,6 @@ This project tackles the problem of SMS spam detection using Natural Language Pr
 ### 2. Feature Engineering
 
 - **TF-IDF Features**: 3,000 features extracted from text
-- **Additional Features**: Number of characters per message
-- **Total Features**: 3,001 dimensions
 
 ### 3. Models Evaluated
 
