@@ -2,7 +2,7 @@
 
 A machine learning-based SMS/Email spam detection system with an interactive web interface built using Streamlit. This project implements advanced NLP techniques and multiple classification algorithms to accurately identify spam messages with high precision.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](email-sms-spam-predictor-karangautam870)
 
 ## 🎯 Project Overview
 
