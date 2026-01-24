@@ -1,9 +1,25 @@
-import streamlit as st
-import pickle
 import nltk
+import string
+import pickle
+import streamlit as st
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-import string
+
+# Download NLTK data first
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', quiet=True)
+    
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab', quiet=True)
+    
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords', quiet=True)
 
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
