@@ -13,7 +13,20 @@ model = pickle.load(open('model.pkl', 'rb'))
 ps = PorterStemmer()
 
 
+def ensure_nltk_data():
+    try:
+        nltk.data.find("tokenizers/punkt")
+    except LookupError:
+        nltk.download("punkt", quiet=True)
+
+    try:
+        nltk.data.find("corpora/stopwords")
+    except LookupError:
+        nltk.download("stopwords", quiet=True)
+
+
 def transform_text(text):
+    ensure_nltk_data()
     text = text.lower()
     text = nltk.word_tokenize(text)
 
